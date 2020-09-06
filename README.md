@@ -48,8 +48,8 @@ HOW TO
 ## Acknowledgments
 
 This repo is based on
-  - [Source 1](https://github.com/)
-  - [Source 2](https://github.com/)
+  - [Re-training SSD-Mobilenet](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md)
+  - [Google Colaboratory](https://colab.research.google.com/notebooks/intro.ipynb)
 
 Thanks to the original authors for their work!
 
