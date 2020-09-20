@@ -61,6 +61,7 @@ Pre-trained model is available at pretrained-models/
 
 ## Running
 
+### Run training 
 To run the training, pass path to the pre-trained checkpoint:
 ```
 !python train_ssd.py --model-dir=/content/drive/My\ Drive/ASLabor/models/people --num-epochs=30 --data=/content/drive/My\ Drive/ASLabor/data --batch-size=4 --resume=/content/drive/My\ Drive/ASLabor/models/people/mb1-ssd-Epoch-14-Loss-6.35830452063909.pth
@@ -76,7 +77,30 @@ Here are some common options that you can run the training script with:
 | `--epochs`     |     30    | up to 100 is desirable, but will increase training time    |
 | `--workers`    |     2     | number of data loader threads (0 = disable multithreading) |
 
-> Additional comment about the demo.
+The train_ssd.py is taken from [jetson-inference repository](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md). 
+
+## Run data splitting
+
+[Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split the input picture in a lot of small images. You can find the scripts for the data splitting in folder "pythonsplittingProject". 
+You should run following script from this folder to split the train data:
+```
+python PANDA-Toolkit/generate_split_data.py --image_root ./ --person_anno_file image_ann
+os/image_annos/person_bbox_train.json --output_dir output_train  --image_subdir image_train  --annotype train
+```
+You should run following script from this folder to split the validation data:
+```
+python PANDA-Toolkit/generate_split_data.py --image_root ./ --person_anno_file image_annos/perso
+n_bbox_valid.json --output_dir output_valid --image_subdir ./image_valid  --annotype valid
+```
+Here are some common options that you can run the splitting script with:
+
+| Argument             | Description                                                        |
+|----------------------|--------------------------------------------------------------------|
+| `--image_root`       | the path to the root directory                                     |
+| `--person_anno_file` | the path to the annotation file                                    |
+| `--output_dir`       | the path to the output directory                                   |
+| `--image_subdir`     | the name of the subdirectory to input images that must be splitted |
+| `--annotype`         | type of the annotations                                            |
 
 ## Docker
 HOW TO
@@ -85,6 +109,7 @@ HOW TO
 
 This repo is based on
   - [Re-training SSD-Mobilenet](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md)
+  - [Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit)
   - [Google Colaboratory](https://colab.research.google.com/notebooks/intro.ipynb)
 
 Thanks to the original authors for their work!
