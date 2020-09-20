@@ -1,6 +1,7 @@
 # Project-Template for IW276 Autonome Systeme Labor
 
-Short introduction to project assigment.
+This project includes optimization of the existing methods and technologies with the aim of detecting larger numbers of people from CCTV cameras in public places.
+Our approach works with the help of a pre-trained machine learning model that runs on a Jetson Nano in a Docker container.
 
 <p align="center">
   Screenshot / GIF <br />
