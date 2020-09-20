@@ -28,6 +28,7 @@ Our approach works with the help of a pre-trained machine learning model that ru
 
 ## Prerequisites
 ### For work with Jetson Nano: 
+// TODO Sissi
 1. Install requirements:
 ```
 pip install -r requirements.txt
