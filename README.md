@@ -1,6 +1,6 @@
 # Project-Template for IW276 Autonome Systeme Labor
 
-This project includes optimization of the existing methods and technologies with the aim of detecting larger numbers of people from CCTV cameras in public places.
+This project includes the optimization of the existing methods and technologies to detect larger numbers of people from CCTV cameras in public places.
 Our approach works with the help of a pre-trained machine learning model that runs on a Jetson Nano in a Docker container.
 
 <p align="center">
@@ -41,14 +41,14 @@ pip install -r requirements.txt
   !bash python open_images_downloader.py --max-images=2500 --class-names "Person"
   ```
 
-  b. Upload your own dataset in Colab environment via right mouse click in the colab directory area. This approach is very time consuming and the data will be deleted after the expiration of runtime. That why it is better to use the approach from the a or c list items. 
+  b. Upload your dataset in Colab environment via the right mouse click in the Colab directory area. This approach is very time consuming and the data will be deleted after the expiration of runtime. That why it is better to use the approach from the a or c list items. 
 
-  c. Upload your dataset(with the same format as open-image dataset) in Google Drive and mount the Google Drive with the Google Colab using following comand:
+  c. Upload your dataset(with the same format as open-image dataset) in Google Drive and mount the Google Drive with the Google Colab using the following command:
   ```
   from google.colab import drive
   drive.mount('/content/drive')
   ```
-3. Upload all necessary scripts in Google Colad. The most convinient way to do it is to put all necessary files in one ".zip"-File and unzip it in Colab Notebook using following comand:
+3. Upload all necessary scripts in Google Colad. The most convenient way to do it is to put all necessary files in one ".zip"-File and unzip it in Colab Notebook using the following command:
   ```
   !unzip Files_for_colab.zip
   ```
@@ -62,8 +62,8 @@ Pre-trained model is available at pretrained-models/
 ## Running
 
 ### Run data splitting
-The input images from https://bwsyncandshare.kit.edu are very big and they must be splitted in small images for fast training. 
-[Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split the input picture in a lot of small images. You can find the scripts for the data splitting in folder "pythonsplittingProject". 
+The input images from https://bwsyncandshare.kit.edu are very big and they must be split in small images for fast training. 
+[Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split the input picture in a lot of small images. You can find the scripts for the data splitting in the folder "pythonsplittingProject". 
 You should run following script from this folder to split the train data:
 ```
 python PANDA-Toolkit/generate_split_data.py --image_root ./ --person_anno_file image_ann
@@ -86,7 +86,7 @@ Here are some common options that you can run the splitting script with:
 
 ### Run format conversion for annotations 
 
-To prepaire the dataset for network training, the images and annotations must have the similar format as data from open-image dataset, but the annotations have COCO-Format after data splitting. The annotations will be converted to the correct format with help of script in folder "ConvertCOCOtoCSV". To convert the annotations you should adjust the name of ".json"-file in code and run the main.py script. 
+To prepare the dataset for network training, the images and annotations must have a similar format as data from open-image dataset, but the annotations have COCO-Format after data splitting. The annotations will be converted to the correct format with help of the script in folder "ConvertCOCOtoCSV". To convert the annotations you should adjust the name of ".json"-file in code and run the main.py script. 
 
 ### Run training 
 To run the training, pass path to the pre-trained checkpoint:
