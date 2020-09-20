@@ -61,7 +61,6 @@ Pre-trained model is available at pretrained-models/
 
 ## Running
 
-
 ### Run data splitting
 The input images from https://bwsyncandshare.kit.edu are very big and they must be splitted in small images for fast training. 
 [Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split the input picture in a lot of small images. You can find the scripts for the data splitting in folder "pythonsplittingProject". 
@@ -85,7 +84,7 @@ Here are some common options that you can run the splitting script with:
 | `--image_subdir`     | the name of the subdirectory to input images that must be splitted |
 | `--annotype`         | type of the annotations                                            |
 
-### Format conversion for annotations 
+### Run format conversion for annotations 
 
 To prepaire the dataset for network training, the images and annotations must have the similar format as data from open-image dataset, but the annotations have COCO-Format after data splitting. The annotations will be converted to the correct format with help of script in folder "ConvertCOCOtoCSV". To convert the annotations you should adjust the name of ".json"-file in code and run the main.py script. 
 
@@ -105,11 +104,15 @@ Here are some common options that you can run the training script with:
 | `--epochs`     |     30    | up to 100 is desirable, but will increase training time    |
 | `--workers`    |     2     | number of data loader threads (0 = disable multithreading) |
 
-The train_ssd.py is taken from [jetson-inference repository](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md). 
+The train_ssd.py is taken from [jetson-inference repository](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md). The execution of the script produces the ".pth"-file, which can be run on Jetson Nano to detect the people from the photos or videos. 
 
+### Run model on Jetson Nano
+
+// TODO Sissi
 
 ## Docker
-HOW TO
+
+// TODO Sissi
 
 ## Acknowledgments
 
