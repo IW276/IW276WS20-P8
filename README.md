@@ -105,7 +105,7 @@ Here are some common options that you can run the training script with:
 | `--epochs`     |     30    | up to 100 is desirable, but will increase training time    |
 | `--workers`    |     2     | number of data loader threads (0 = disable multithreading) |
 
-The train_ssd.py is taken from [jetson-inference repository](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md). The execution of the script produces the ".pth"-file, which can be run on Jetson Nano to detect the people from the photos or videos. 
+The train_ssd.py is taken from [jetson-inference repository](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md). The execution of the script produces the ".pth"-file, which can be run on Jetson Nano to detect the people from the photos or videos. The script is executed in Google Colab, because we need GPU to run the training fast. Here is the link to our [Colab Notebook](https://colab.research.google.com/drive/1qh2uV86M_5wnlsHCOIelaP0klH1zyBKR?usp=sharing).
 
 ### Run model on Jetson Nano
 
