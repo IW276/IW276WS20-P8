@@ -4,8 +4,7 @@ This project includes the optimization of the existing methods and technologies 
 Our approach works with the help of a pre-trained machine learning model that runs on a Jetson Nano in a Docker container.
 
 <p align="center">
-  Screenshot / GIF <br />
-  Link to Demo Video
+  <img src="pictures/9.jpg">
 </p>
 
 > This work was done by Stanislava Anastasova, Kristina Koleva, Tatsiana Mazouka during the IW276 Autonome Systeme Labor at the Karlsruhe University of Applied Sciences (Hochschule Karlruhe - Technik und Wirtschaft) in WS 2020 / 2021. 
