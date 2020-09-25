@@ -1,4 +1,4 @@
-# Project-Template for IW276 Autonome Systeme Labor
+# IW276WS20P8: SSD Detector 
 
 This project includes the optimization of the existing methods and technologies to detect larger numbers of people from CCTV cameras in public places.
 Our approach works with the help of a pre-trained machine learning model that runs on a Jetson Nano in a Docker container.
@@ -23,15 +23,14 @@ Our approach works with the help of a pre-trained machine learning model that ru
 * Jetson Nano
 * Jetpack 4.4
 * Registration in Google Colab
-> [Optional] ...
 
 ## Prerequisites
 ### For work with Jetson Nano: 
-// TODO Sissi
-1. Install requirements:
+Because of the Docker scripts used and the data directory structure that gets mounted into the container, it is required to clone the project on your host device:
+```bash
+$ git clone https://github.com/IW276/IW276WS20-P8.git
 ```
-pip install -r requirements.txt
-```
+Before you run the SSD detector, make sure that your test images are located in the home directory in your host device under ```projects/dataset_panda/image_valid```.
 
 ### For network training:
 1. Open Google Colab and register there
@@ -48,16 +47,16 @@ pip install -r requirements.txt
   from google.colab import drive
   drive.mount('/content/drive')
   ```
-3. Upload all necessary scripts in Google Colad. The most convenient way to do it is to put all necessary files in one ".zip"-File and unzip it in Colab Notebook using the following command:
+3. Upload all necessary scripts in Google Colab. The most convenient way to do it is to put all necessary files in one ".zip"-File and unzip it in Colab Notebook using the following command:
   ```
   !unzip Files_for_colab.zip
   ```
 
 
 
-## Pre-trained models <a name="pre-trained-models"/>
+## Pre-trained models
 
-Pre-trained model is available at pretrained-models/
+Pre-trained model is available at ``jetson-inference/python/training/detection/ssd/models/people``
 
 ## Running
 
@@ -108,11 +107,25 @@ The train_ssd.py is taken from [jetson-inference repository](https://github.com/
 
 ### Run model on Jetson Nano
 
-// TODO Sissi
+This project is designed to be run from within a Docker Container. For instructions how to build and run the container, see [Docker](#Docker). \
+To start the SSD detector, use the script ```detect_people.sh```. This script does not require any command-line parameters. To run this command, the working directory of your terminal should still be located in the project's root directory within the Docker container: ```jetson-inference/```.
+```bash
+$ detect_people/detect_people.sh
+```
+> The output images with bounding boxes are saved in the host home directory under ``` projects/results/ ```. The images can still be viewed and accessed after exiting the Docker container.
 
 ## Docker
 
-// TODO Sissi
+To run the Docker container, use the ```docker/run.sh``` script.
+```bash
+$ cd jetson-inference
+$ docker/run.sh
+```
+```docker/run.sh``` will automatically pull the correct container tag from DockerHub, and mount the appropriate data directories.\
+If you wish to mount your own directory into the container, you can use the ```--volume HOST_DIR:MOUNT_DIR``` argument to docker/run.sh:
+```bash
+$ docker/run.sh --volume /my/host/path:/my/container/path
+```
 
 ## Acknowledgments
 
