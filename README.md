@@ -61,7 +61,7 @@ Pre-trained model is available at ``jetson-inference/python/training/detection/s
 ## Running
 
 ### Run data splitting
-The input images from https://bwsyncandshare.kit.edu are very big and they must be split in small images for fast training. 
+The input images from http://www.panda-dataset.com/Download.html are very big and they must be split in small images for fast training. 
 [Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split the input picture in a lot of small images. You can find the scripts for the data splitting in the folder "pythonsplittingProject". 
 You should run following script from this folder to split the train data:
 ```
