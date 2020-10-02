@@ -15,6 +15,7 @@ Our approach works with the help of a pre-trained machine learning model that ru
 * [Prerequisites](#prerequisites)
 * [Pre-trained model](#pre-trained-model)
 * [Running](#running)
+* [Docker](#docker)
 * [Acknowledgments](#acknowledgments)
 
 ## Requirements
@@ -30,7 +31,7 @@ Because of the Docker scripts used and the data directory structure that gets mo
 ```bash
 $ git clone https://github.com/IW276/IW276WS20-P8.git
 ```
-Before you run the SSD detector, make sure that your test images are located in the home directory in your host device under ```projects/dataset_panda/image_valid```.
+Before you run the SSD detector, make sure that your test images are located in the home directory of your host device under ```projects/dataset_panda/image_valid```.
 
 ### For network training:
 1. Open Google Colab and register there
