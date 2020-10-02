@@ -36,14 +36,15 @@ Before you run the SSD detector, make sure that your test images are located in 
 ### For network training:
 1. Open Google Colab and register there
 2. Upload the dataset for training. There are three possibilities:
-  a. Upload the open-image dataset with help of this command:
+
+  a. Upload the open-image dataset with this command:
   ```
   !bash python open_images_downloader.py --max-images=2500 --class-names "Person"
   ```
 
-  b. Upload your dataset in Colab environment via the right mouse click in the Colab directory area. This approach is very time consuming and the data will be deleted after the expiration of runtime. That why it is better to use the approach from the a or c list items. 
+  b. Upload your dataset in the Colab environment via the right mouse click in the Colab directory area. This approach is very time-consuming and the data will be deleted after the runtime expiration. Therefore it is preferable to use the approach from a. or c. 
 
-  c. Upload your dataset(with the same format as open-image dataset) in Google Drive and mount the Google Drive with the Google Colab using the following command:
+  c. Upload your dataset (with the same format as the open-image dataset) in Google Drive and mount your drive in Google Colab using the following command:
   ```
   from google.colab import drive
   drive.mount('/content/drive')
@@ -57,13 +58,13 @@ Before you run the SSD detector, make sure that your test images are located in 
 
 ## Pre-trained models
 
-Pre-trained model is available at ``jetson-inference/python/training/detection/ssd/models/people``
+A pre-trained model is available at ``jetson-inference/python/training/detection/ssd/models/people``.
 
 ## Running
 
 ### Run data splitting
-The input images from http://www.panda-dataset.com/Download.html are very big and they must be split in small images for fast training. 
-[Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split the input picture in a lot of small images. You can find the scripts for the data splitting in the folder "pythonsplittingProject". 
+The input images from http://www.panda-dataset.com/Download.html are too large and therefore must be split into smaller images for a faster training. 
+[Panda-Toolkit](https://github.com/IW276/PANDA-Toolkit) was used to split each input picture many small images. You can find the scripts for the data splitting in the folder "pythonsplittingProject". \
 You should run following script from this folder to split the train data:
 ```
 python PANDA-Toolkit/generate_split_data.py --image_root ./ --person_anno_file image_ann
@@ -86,7 +87,7 @@ Here are some common options that you can run the splitting script with:
 
 ### Run format conversion for annotations 
 
-To prepare the dataset for network training, the images and annotations must have a similar format as data from open-image dataset, but the annotations have COCO-Format after data splitting. The annotations will be converted to the correct format with help of the script in folder "ConvertCOCOtoCSV". To convert the annotations you should adjust the name of ".json"-file in code and run the main.py script. 
+To prepare the dataset for network training, the images and annotations must have the same format as the data from the open-image dataset. However, after the splitting the annotations are in the COCO-Format. The annotations are converted to the correct format with the script in folder "ConvertCOCOtoCSV". To convert the annotations you should adjust the name of the ".json"-file in code and run the main.py script. 
 
 ### Run training 
 To run the training, pass path to the pre-trained checkpoint:
